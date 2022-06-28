@@ -1,1 +1,24 @@
-<h1>test</h1>
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}Home Page{% endblock title %}
+
+{% block body %}
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    {% include "components/navbar.html" %}
+
+    
+    <div class="container">
+        <div class="card bg-warning main-card">
+            <div class="row text-center height d-flex justify-content-center align-items-center">
+                <div class="col-md-11">
+                    <div class="search">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Search for a word...">
+                        <button class="btn btn-primary">Search</button>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
