@@ -7,3 +7,8 @@ class HomePageView(View):
     
     def get(self,request ,*args, **kwargs):
         return render(request, "home.html")
+
+class DetailPageView(View):
+    
+    def get(self,request ,*args, **kwargs):
+        return render(request, "detailofword.html")
