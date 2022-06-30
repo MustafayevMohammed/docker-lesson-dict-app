@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% load static %}
 
-{% block title %}Home Page{% endblock title %}
+{% block title %}Detail of word {{word}} {% endblock title %}
 
 {% block body %}
     <link rel="stylesheet" href="{% static 'css/search.css' %}">
@@ -12,74 +12,45 @@
     <div class="card bg-warning main-card overflow-auto">
       <div class="row text-center height d-flex justify-content-center align-items-center">
         <div class="card-body">
-          <h4 class="card-title">Detail of word:</h4>  <h3>Hello</h3>
+          <h4 class="card-title">Detail of word </h4>
+
+          <h3>{{word}}</h3>
+          <a href="" class="as">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+              <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+            </svg>
+            Add To Favorites
+          </a>
           <hr>
             <div class="table-responsive">
               <table class="table ">
                 <tbody>
                   <tr>
                     <td class="font-weight-bold key" >Text: </td>
-                    <td class="argument">həˈləʊ</td>
+                    <td class="argument">{{text}}</td>
                   </tr>
                   <tr>
                     <td class="font-weight-bold key" >Origin: </td>
-                    <td class="argument">early 19th century: variant of earlier hollo ; related to holla</td>
+                    <td class="argument">{{origin}}</td>
                   </tr>
                   <tr>
                     <td class="font-weight-bold key" >Audio:</td>
                     <td class="argument">
                       <audio controls>
-                        <source src="//ssl.gstatic.com/dictionary/static/sounds/20200429/hello--_gb_1.mp3" type="audio/mpeg">
+                        <source src="{{audio}}" type="audio/mpeg">
                         Your browser does not support the audio element.
                       </audio>
                     </td>
                   </tr>
                   <tr>
-                    <td class="font-weight-bold key mean">Meanings: </td>
+                    <td class="font-weight-bold key" >Example </td>
+                    <td class="argument">{{example}}</td>
                   </tr>
                   <tr>
-                    <td class="font-weight-bold key" >Part Of Speech: </td>
-                    <td class="argument">exclamation</td>
+                    <td class="font-weight-bold key" >Definition </td>
+                    <td class="argument">{{definition}}</td>
                   </tr>
-                  <tr>
-                    <td class="font-weight-bold key" >Definition: </td>
-                    <td class="argument">used as a greeting or to begin a phone conversation.</td>
-                  </tr>
-                  <tr>
-                    <td class="font-weight-bold key" >Example: </td>
-                    <td class="argument">hello there, Katie!</td>
-                  </tr>
-                  <tr>
-                    <td class="font-weight-bold key" >Synonims: </td>
-                    <td class="argument"></td>
-                  </tr>
-                  <tr>
-                    <td class="font-weight-bold key" >Antonyms: </td>
-                    <td class="argument"></td>
-                  </tr>
-                  <tr>
-                    <td class="font-weight-bold key mean">Meanings: </td>
-                  </tr>
-                  <tr>
-                    <td class="font-weight-bold key" >Part Of Speech: </td>
-                    <td class="argument">exclamation</td>
-                  </tr>
-                  <tr>
-                    <td class="font-weight-bold key" >Definition: </td>
-                    <td class="argument">used as a greeting or to begin a phone conversation.</td>
-                  </tr>
-                  <tr>
-                    <td class="font-weight-bold key" >Example: </td>
-                    <td class="argument">hello there, Katie!</td>
-                  </tr>
-                  <tr>
-                    <td class="font-weight-bold key" >Synonims: </td>
-                    <td class="argument"></td>
-                  </tr>
-                  <tr>
-                    <td class="font-weight-bold key" >Antonyms: </td>
-                    <td class="argument"></td>
-                  </tr>
+                
                 </tbody>
               </table>
             </div>
