@@ -12,18 +12,51 @@ services:
       - "5432:5432"
     env_file:
       - core/.env
+    networks:
+      djangonetwork:
   
   app:
     build: .
     volumes:
       - .:/app
+      - staticvol:/static/
     image: dict:django
     container_name: dictapp
     depends_on:
       - db
     ports:
       - "8000:8000"
-    command: python manage.py runserver 0.0.0.0:8000
+    networks:
+      main:
+        aliases:
+        - app
+      djangonetwork:
+
+    command: > 
+        sh -c "python manage.py makemigrations --noinput &&
+               python manage.py migrate --noinput &&
+               python manage.py collectstatic --noinput &&
+               gunicorn core.wsgi:application workers 3 --bind 0.0.0.0:8000"
+
+
+  nginx:
+    build: ./config
+    volumes:
+      - staticvol:/static/
+    ports:
+      - "80:80"
+    networks:
+      main:
+        aliases:
+          - nginx
+    depends_on:
+      - app
+
 
 volumes:
   dictdbvolume:
+  staticvol:
+
+networks:
+  main:
+  djangonetwork:
